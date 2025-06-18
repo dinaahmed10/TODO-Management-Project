@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Getter
 
-public class TackDTO {
+public class TaskDTO {
 
     private Long id;
     @NotEmpty(message = "title can't be empty")
@@ -21,5 +21,5 @@ public class TackDTO {
     @NotEmpty(message = "description can't be empty")
     @NotBlank(message = "description can't be free space ")
     private String description;
-    private boolean isCompleted;
+    private boolean completed;
 }
