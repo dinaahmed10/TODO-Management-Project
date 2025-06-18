@@ -10,5 +10,7 @@ public interface TaskService {
     TaskDTO updateTask(Long id, TaskDTO tackDTO);
     void deleteTask(Long id);
     List<TaskDTO> getAllTasks();
+    TaskDTO completeTask(Long id);
+    TaskDTO inCompleteTask(Long id);
 
 }

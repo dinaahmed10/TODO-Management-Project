@@ -55,4 +55,22 @@ public class TaskServiceImpl implements TaskService {
 
         return taskDTOs;
     }
+
+    @Override
+    public TaskDTO completeTask(Long id) {
+        Task task=taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task with this ID Not Found"));
+         task.setCompleted(true);
+        taskRepository.save(task);
+        return modelMapper.map(task,TaskDTO.class);
+    }
+
+    @Override
+    public TaskDTO inCompleteTask(Long id) {
+        Task task=taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task with this ID Not Found"));
+        task.setCompleted(false);
+        taskRepository.save(task);
+        return modelMapper.map(task,TaskDTO.class);
+    }
+
+
 }

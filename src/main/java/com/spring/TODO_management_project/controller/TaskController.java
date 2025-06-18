@@ -39,5 +39,13 @@ public class TaskController {
     public ResponseEntity<List<TaskDTO>> getAllTasks(){
         return ResponseEntity.ok(taskService.getAllTasks());
     }
+    @GetMapping("/complete/{id}")
+    public ResponseEntity<TaskDTO> completeTask(@PathVariable Long id) {
+        return ResponseEntity.ok(taskService.completeTask(id));
+    }
+    @GetMapping("/incomplete/{id}")
+    public ResponseEntity<TaskDTO> incompleteTask(@PathVariable Long id) {
+        return ResponseEntity.ok(taskService.inCompleteTask(id));
+    }
 
 }
